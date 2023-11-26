@@ -6,18 +6,22 @@ const Details = () => {
   const [result, setresult] = useState([]);
   const [val, setval] = useState({});
 
+  /**EVENT CHANGE FUNCTION */
   const handle = (e) => {
     setval({ ...val, [e.target.name]: e.target.value });
   };
 
+  /**BUTTON CLICK FUNCTION */
   const handlesubmit = () => {
     setresult([...result, val]);
   };
 
+  /**NAME THROUGTH DATA DELETE */
   const handleDelete = (name) => {
     setresult(result.filter((e) => e.author !== name));
   };
 
+  /** USE HOOK SET DATA  */
   useEffect(() => {
     setresult(bookObject);
   }, []);
@@ -46,6 +50,7 @@ const Details = () => {
         <button onClick={handlesubmit}>Add Data</button>
       </div>
 
+      /**MAPING DATA */
       {result?.map((val, ind) => {
         return (
           <div className="card" style={{ width: 250 }} key={ind}>

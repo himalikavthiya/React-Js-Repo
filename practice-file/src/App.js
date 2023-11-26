@@ -10,7 +10,6 @@ import View from "./components/routingNav/View";
 import Counter from "./components/Counter";
 // import { data } from "./components/Data";
 // import Form1 from "./components/Form1";
-// import Form from "./components/formExample/Form";
 // import { bookObject } from "./components/formExample/Object";
 
 function App() {
@@ -18,16 +17,15 @@ function App() {
     <div className="App">
       <div className="row">
         <Navbar />
+        {/* SET ROUTES  */}
         <Routes>
-          <Route path="/" exact element={<Home />}></Route>
-          <Route path="/about" exact element={<About />}></Route>
-          <Route path="/contact" exact element={<Contact />}></Route>
-          <Route path="/:product" exact element={<View />}></Route>
-        </Routes>
-      </div>
-      <Counter/>
-      {/* <Form /> */}
-      {/* <Form1 /> */}
+          <Route path="/" exact element={<Home />}></Route>{" "}
+          <Route path="/about" exact element={<About />}></Route>{" "}
+          <Route path="/contact" exact element={<Contact />}></Route>{" "}
+          <Route path="/:product" exact element={<View />}></Route>{" "}
+        </Routes>{" "}
+      </div>{" "}
+      <Counter /> {/* <Form1 /> */}{" "}
     </div>
   );
 }
