@@ -14,7 +14,7 @@ const Display = ({data,onDelete}) => {
     assembly,
     part,
   } = data;
-//   const [formData, setFormData] = useState([]);
+  const [formData, setFormData] = useState([]);
 
 
    const deleteData = (id) => {
