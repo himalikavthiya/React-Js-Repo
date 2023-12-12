@@ -1,0 +1,105 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "title": "Duis repellendus Qu",
+      "author": "Est voluptatem corpo",
+      "id": 12
+    },
+    {
+      "title": "Mollit quia fugit r",
+      "author": "Totam cupiditate rer",
+      "id": 13
+    },
+    {
+      "title": "Recusandae Qui ",
+      "author": "Assumenda  ",
+      "id": 14
+    },
+    {
+      "title": "Doloremque sequi ab ",
+      "author": "Saepe irure amet no",
+      "id": 17
+    },
+    {
+      "title": "Et totam omnis est l",
+      "author": "Quo animi optio mi",
+      "id": 18
+    },
+    {
+      "title": "Minim dolor dolor of",
+      "author": "Dolor similique pers",
+      "id": 19
+    },
+    {
+      "title": "Quaerat harum est ex",
+      "author": "Tenetur qui nihil te",
+      "id": 20
+    },
+    {
+      "title": "Fugit excepturi occ",
+      "author": "Et laborum Qui iure",
+      "id": 21
+    },
+    {
+      "function handle(e) {\n      setvalue({\n        ...value,\n        [e.target.name]: e.target.value\n      });\n    }": "",
+      "id": 22
+    },
+    {
+      "function handle(e) {\n      setdata({\n        ...value,\n        [e.target.name]: e.target.value\n      });\n    }": "",
+      "id": 23
+    },
+    {
+      "fname": "Heidi",
+      "lname": "Newman",
+      "cardNo": "Illo occaecat sunt u",
+      "address": "Dolor molestias aspe",
+      "assembly": "Price Guerra",
+      "part": "Margaret Fletcher",
+      "id": 24
+    },
+    {
+      "fname": "Adrienne",
+      "lname": "Snider",
+      "cardNo": "Aut minim tempore q",
+      "address": "Officia sunt sint si",
+      "assembly": "Amos Jordan",
+      "part": "Holmes Gutierrez",
+      "id": 25
+    },
+    {
+      "fname": "Katell",
+      "lname": "Holt",
+      "cardNo": "Velit obcaecati et r",
+      "row-radio-buttons-group": "female",
+      "address": "Aut praesentium repr",
+      "assembly": "Catherine Conrad",
+      "part": "Maris Conner",
+      "id": 26
+    },
+    {
+      "fname": "Aidan",
+      "lname": "Ingram",
+      "cardNo": "Enim tempore aliqua",
+      "row-radio-buttons-group": "female",
+      "address": "Vitae tempora volupt",
+      "assembly": "Kato Waters",
+      "part": "Giacomo Hines",
+      "id": 27
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
