@@ -1,3 +1,7 @@
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { endpoint, endpointDelete, endpointUpdate, url } from "../constant";
+import BasicDatePicker from "./BasicDatePicker";
 import {
   Box,
   Typography,
@@ -8,47 +12,76 @@ import {
   FormControlLabel,
   Radio,
   Button,
+  CardActions,
+  CardContent,
+  Card,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
-import BasicDatePicker from "./BasicDatePicker";
-import axios from "axios";
-import Display from "./Display";
 
-const Form = () => {
+export const Form = () => {
   const [formData, setFormData] = useState([]);
+  const [data, setdata] = useState({});
+  const [update, setupdate] = useState({});
+  const [isUpdating, setIsUpdating] = useState(false);
 
-  /* ---------------------------- Get APi data ---------------------------- */
-  const getData = () => {
-    axios.get("http://localhost:3000/posts").then((res) => {
+  /* -------------------------------- get data -------------------------------- */
+  const get_api = () => {
+    axios.get(url + endpoint).then((res) => {
       console.log(res.data);
       setFormData(res.data || []);
     });
   };
-
- /* ------------------------- Form input change event ------------------------ */
+  /* ------------------------- Form input change event ------------------------ */
   const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setdata({ ...data, [e.target.name]: e.target.value });
   };
 
-/* ----------------------- Form data submited function ---------------------- */
+  /* ----------------------- Form data submited function ---------------------- */
   const handleSubmit = () => {
-    axios.post("http://localhost:3000/posts", formData).then((res) => {
-      console.log(res.data);
-      getData();
-      //  setFormData([...formData, res.data]);
+    axios.post(url + endpoint, data).then((res) => {
+      setFormData([...formData, res.data]);
     });
   };
   /* ------------------------------- Delete data ------------------------------ */
- const handleDelete = (id) => {
-    console.log(id);
-
-    axios.delete(`http://localhost:3000/posts/${id}`).then(() => {
-      //   getData();
+  const handleDelete = (id) => {
+    axios.delete(url + endpointDelete + id).then(() => {
       setFormData(formData.filter((e) => e.id !== id));
+      setIsUpdating(true);
     });
-  }
+  };
+  /* ------------------------------- update data ------------------------------ */
+  const updateData = (id, ind) => {
+    const final = data[ind];
+    setupdate(final);
+  };
+
+  const finalUpdate = (e) => {
+    setupdate({ ...update, [e.target.name]: e.target.value });
+  };
+
+  const final = (id) => {
+    axios.put(url + endpointUpdate + id, update).then((res) => {
+      const updatedData = [...formData];
+      const index = updatedData.findIndex((item) => item.id === id);
+      updatedData[index] = update;
+      setdata(updatedData);
+    });
+  };
+  const handleClick = () => {
+    if (isUpdating) {
+      final();
+    } else {
+      handleSubmit();
+    }
+  };
+  const finalDataUpdate = () => {
+    if (setIsUpdating) {
+      finalUpdate();
+    } else {
+      handleInputChange();
+    }
+  };
   useEffect(() => {
-    getData();
+    get_api();
   }, []);
 
   return (
@@ -64,7 +97,7 @@ const Form = () => {
             name="fname"
             required
             variant="outlined"
-            onChange={handleInputChange}
+            onChange={finalDataUpdate}
             sx={{ maxWidth: "14rem", marginRight: 4 }}
           />
 
@@ -74,7 +107,7 @@ const Form = () => {
             name="lname"
             required
             variant="outlined"
-            onChange={handleInputChange}
+            onChange={finalDataUpdate}
           />
         </Box>
         <Box m="1rem">
@@ -84,7 +117,7 @@ const Form = () => {
             name="cardNo"
             required
             variant="outlined"
-            onChange={handleInputChange}
+            onChange={finalDataUpdate}
             sx={{ marginRight: 4 }}
           />
           <FormControl>
@@ -98,7 +131,7 @@ const Form = () => {
                 value="female"
                 control={<Radio />}
                 label="Female"
-                onChange={handleInputChange}
+                onChange={finalDataUpdate}
               />
               <FormControlLabel value="male" control={<Radio />} label="Male" />
             </RadioGroup>
@@ -107,9 +140,8 @@ const Form = () => {
         <Box m="1rem" style={{ display: "inline-block" }}>
           <BasicDatePicker
             style={{ display: "inline-block" }}
-            onChange={handleInputChange}
+            onChange={finalDataUpdate}
           />
-          {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} /> */}
 
           <TextField
             placeholder="Enter your Address"
@@ -117,7 +149,7 @@ const Form = () => {
             name="address"
             required
             variant="outlined"
-            onChange={handleInputChange}
+            onChange={finalDataUpdate}
             style={{ marginTop: "1rem" }}
           />
         </Box>
@@ -140,26 +172,54 @@ const Form = () => {
         </Box>
         <Box textAlign="center" mb="2rem">
           <Button
-            onClick={handleSubmit}
+            onClick={handleClick}
             variant="contained"
             color="success"
             sx={{ marginRight: "1rem" }}
           >
-            Add Data
+            {isUpdating ? "Update" : "AddData"}
           </Button>
-          <Button variant="contained" backgroundColor="#0063cc">
-            Cancle
-          </Button>
+          <Button variant="contained">Cancle</Button>
         </Box>
-</Box>
-        {formData?.map((val,ind)=>(
-          <Display key={ind} data={val}
-          onDelete={handleDelete}/>
-         )
-      )}
-      
+      </Box>
+
+      {formData?.map((val, ind) => {
+        return (
+          <>
+            <Box
+              key={ind}
+              sx={{ display: "inline-block", mx: "2rem", width: "14rem" }}
+            >
+              <Card variant="outlined">
+                <CardContent>
+                  <Typography
+                    sx={{ fontSize: 18 }}
+                    color="text.secondary"
+                    gutterBottom
+                  >
+                    {val.fname} {val.lname}
+                  </Typography>
+                  <Typography variant="body2">{val.cardNo}</Typography>
+                  <Typography variant="body2">{val.sex}</Typography>
+                  <Typography variant="body2">{val.dob}</Typography>
+                  <Typography variant="body2">{val.address}</Typography>
+                  <Typography variant="body2">{val.assembly}</Typography>
+                  <Typography variant="body2">{val.part}</Typography>
+                </CardContent>
+
+                <CardActions>
+                  <Button size="small" onClick={() => handleDelete(val.id)}>
+                    Delete
+                  </Button>
+                  <Button size="small" onClick={() => updateData(val.id, ind)}>
+                    Update
+                  </Button>
+                </CardActions>
+              </Card>
+            </Box>
+          </>
+        );
+      })}
     </>
   );
 };
-
-export default Form;
