@@ -73,13 +73,13 @@ export const Form = () => {
       handleSubmit();
     }
   };
-  const finalDataUpdate = () => {
-    if (setIsUpdating) {
-      finalUpdate();
-    } else {
-      handleInputChange();
-    }
-  };
+  // const finalDataUpdate = () => {
+  //   if (setIsUpdating) {
+  //     finalUpdate();
+  //   } else {
+  //     handleInputChange();
+  //   }
+  // };
   useEffect(() => {
     get_api();
   }, []);
@@ -140,9 +140,8 @@ export const Form = () => {
         <Box m="1rem" style={{ display: "inline-block" }}>
           <BasicDatePicker
             style={{ display: "inline-block" }}
-            onChange={finalDataUpdate}
+            onChange={handleInputChange}
           />
-
           <TextField
             placeholder="Enter your Address"
             label="Address"
