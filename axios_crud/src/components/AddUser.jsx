@@ -154,7 +154,7 @@ const AddUser = () => {
           sx={{ marginRight: 4 }}
         />
 
-        {/* <TextField
+        <TextField
           placeholder="Enter your Last Name"
           label="Last Name"
           name="lname"
@@ -162,9 +162,9 @@ const AddUser = () => {
           variant="outlined"
           value={data.lname}
           onChange={handleInputChange}
-        /> */}
+        />
       </Box>
-      {/* <Box m="1rem">
+      <Box m="1rem">
         <TextField
           placeholder="Enter your Card No"
           label="Card No"
@@ -239,7 +239,7 @@ const AddUser = () => {
           value={data.part}
           onChange={handleInputChange}
         />
-      </Box> */}
+      </Box>
       <Box textAlign="center" mb="2rem">
         <Button
           variant="contained"
