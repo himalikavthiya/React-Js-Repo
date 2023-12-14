@@ -41,7 +41,6 @@
       "fname": "Tucker",
       "lname": "Mills",
       "cardNo": "Recusandae Incidunt",
-      "row-radio-buttons-group": "female",
       "address": "Incididunt officia q",
       "assembly": "Ruth Mcmahon",
       "part": "Skyler Butler",
@@ -126,16 +125,6 @@
       "id": 20
     },
     {
-      "fname": "",
-      "lname": "",
-      "cardNo": "",
-      "address": "",
-      "assembly": "",
-      "part": "",
-      "DateofBirth": "",
-      "id": 21
-    },
-    {
       "fname": "Tatum",
       "lname": "Chavez",
       "cardNo": "Amet ut in cillum v",
@@ -155,6 +144,69 @@
       "part": "Blaine Scott",
       "DateofBirth": "",
       "id": 23
+    },
+    {
+      "fname": "Jarrod dd",
+      "lname": "Mcmahon",
+      "cardNo": "Aperiam possimus do",
+      "address": "Minus eos duis moles",
+      "assembly": "Shay Harmon",
+      "part": "Audrey Malone",
+      "DateofBirth": "",
+      "id": 24
+    },
+    {
+      "fname": "fname",
+      "lname": "asd",
+      "cardNo": "asd",
+      "address": "",
+      "assembly": "asd",
+      "part": "asd",
+      "DateofBirth": "2023-12-12T18:30:00.000Z",
+      "id": 27
+    },
+    {
+      "fname": "Levi",
+      "lname": "Ingram",
+      "cardNo": "Dolor ducimus dolor",
+      "address": "Sit ea voluptate cup",
+      "assembly": "Rose Whitney",
+      "part": "Eagan Sellers",
+      "DateofBirth": "2023-12-14T18:30:00.000Z",
+      "radiobuttons": "female",
+      "id": 28
+    },
+    {
+      "fname": "Thomas",
+      "lname": "Griffin",
+      "cardNo": "Adipisicing non sunt",
+      "address": "Proident alias ut v",
+      "assembly": "Benedict Perry",
+      "part": "Indira Burgess",
+      "DateofBirth": "2023-12-07T18:30:00.000Z",
+      "radiobuttons": "male",
+      "id": 29
+    },
+    {
+      "fname": "Melissa",
+      "lname": "Reid",
+      "cardNo": "Perspiciatis fugiat",
+      "address": "Ducimus veniam aut",
+      "assembly": "Oren Baker",
+      "part": "Kameko Velazquez",
+      "DateofBirth": "2023-12-21T18:30:00.000Z",
+      "radiobuttons": "female",
+      "id": 30
+    },
+    {
+      "fname": "fname",
+      "lname": "",
+      "cardNo": "",
+      "address": "",
+      "assembly": "",
+      "part": "",
+      "DateofBirth": "",
+      "id": 31
     }
   ],
   "comments": [

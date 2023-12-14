@@ -10,6 +10,7 @@ import {
   Card,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import dayjs from "dayjs";
 
 export const Display = () => {
   const navigate = useNavigate();
@@ -18,6 +19,8 @@ export const Display = () => {
   /* -------------------------------- get data -------------------------------- */
   const get_api =  () => {
    axios.get(url + endpoint).then((res) => {
+    console.log("get_api called");
+    console.log(res.data)
       setFormData(res.data || []);
       localStorage.setItem("Posts", JSON.stringify(res.data));
     });
@@ -65,11 +68,16 @@ export const Display = () => {
                     {val.fname} {val.lname}
                   </Typography>
                   <Typography variant="body2">{val.cardNo}</Typography>
-                  <Typography variant="body2">{val.sex}</Typography>
-                  <Typography variant="body2">{val.dob}</Typography>
+                  <Typography variant="body2">{val.radiobuttons}</Typography>
+
                   <Typography variant="body2">{val.address}</Typography>
                   <Typography variant="body2">{val.assembly}</Typography>
                   <Typography variant="body2">{val.part}</Typography>
+                  <Typography variant="body2">
+                    {" "}
+                    {dayjs(val.DateofBirth).format("DD,   MM, YYYY")}
+                  </Typography>
+                  {/* <Typography variant="body2">{dayjs(val.DateofBirth)}</Typography> */}
                 </CardContent>
 
                 <CardActions>
