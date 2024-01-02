@@ -14,7 +14,7 @@ export async function get_product_data() {
     // }
     return axios.get(BASE_URL + GET_PRODUCT_API)
         .then((res) => {
-             const data = res.data
+            const data = res.data
             const status = res.status
             return {
                 data,
@@ -41,11 +41,12 @@ export async function post_product_data(action) {
 }
 
 export async function delete_product_data(action) {
-      return axios.post(BASE_URL + DELETE_PRODUCT_API, action.dataObject.id)
+
+    return axios.delete(BASE_URL + DELETE_PRODUCT_API + action.dataObject.id)
         .then((res) => {
 
             const data = action.dataObject.id
-            console.log(data);
+
             const status = res.status
             return {
                 data,
@@ -57,10 +58,10 @@ export async function delete_product_data(action) {
 }
 
 export async function update_product_data(action) {
-    return axios.post(BASE_URL + PUT_PRODUCT_API, action.dataObject.id, action.dataObject)
+    return axios.put(BASE_URL + PUT_PRODUCT_API + action.dataObject.id, action.dataObject)
         .then((res) => {
 
-            const data =res.data;
+            const data = res.data;
             const status = res.status
             return {
                 data,

@@ -75,7 +75,7 @@ const adminReducer = (state = initialState, action) => {
         }
         case DELETE_PRODUCT_FULLFILIED: {
             const deleteData = state.product.filter((item) => item.id !== action.data)
-                 return {
+            return {
                 ...state,
                 isLoading: false,
                 product: deleteData,
@@ -89,30 +89,28 @@ const adminReducer = (state = initialState, action) => {
                 isError: action.dataObject,
             };
         }
-         case PUT_PRODUCT_PANDING: {
-             return {
-                 ...state,
-                 isLoading: true,
-                 isError: null,
-             };
-         }
-         case PUT_PRODUCT_FULLFILIED: {
-             return {
-                 ...state,
-                 isLoading: false,
-                 product:state.product.map((item)=>item.id===action.data.id? action.data:item),
-
-                //  product: state.product.map((state) => state.id === action.data.id ? action.data : state), 
-                 isError: null,
-             };
-         }
-         case PUT_PRODUCT_REJECTED: {
-             return {
-                 ...state,
-                 isLoading: false,
-                 isError: action.dataObject,
-             };
-         }
+        case PUT_PRODUCT_PANDING: {
+            return {
+                ...state,
+                isLoading: true,
+                isError: null,
+            };
+        }
+        case PUT_PRODUCT_FULLFILIED: {
+            return {
+                ...state,
+                isLoading: false,
+                product: state.product.map((item) => item.id === action.dataObject.id ? action.dataObject : item),
+                isError: null,
+            };
+        }
+        case PUT_PRODUCT_REJECTED: {
+            return {
+                ...state,
+                isLoading: false,
+                isError: action.dataObject,
+            };
+        }
         default: {
             return {
                 ...state,

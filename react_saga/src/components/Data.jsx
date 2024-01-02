@@ -29,10 +29,10 @@ const Data = () => {
   };
 
   const handalchange = (e) => {
-    setview((view) => ({
+    setview ({
       ...view,
       [e.target.name]: e.target.value,
-    }));
+    })
   };
 
   const handalUpdate = () => {

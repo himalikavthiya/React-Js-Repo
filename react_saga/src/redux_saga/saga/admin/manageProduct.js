@@ -103,7 +103,7 @@ export function* handle_update_product(action) {
 
         if (status === 200 || status === 201) {
             yield put({
-                ype: PUT_PRODUCT_FULLFILIED,
+                type: PUT_PRODUCT_FULLFILIED,
                 data
             });
         } else {
