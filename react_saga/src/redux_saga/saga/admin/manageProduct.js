@@ -19,7 +19,7 @@ import {
     put
 } from "redux-saga/effects";
 
-//GET product data
+/* ---------------------------- GET product data ---------------------------- */
 export function* handle_get_product(action) {
     try {
         const res = yield call(get_product_data, action);
@@ -78,7 +78,7 @@ export function* handle_delete_product(action) {
 
         if (status === 200 || status === 201) {
             yield put({
-                ype: DELETE_PRODUCT_FULLFILIED,
+               type: DELETE_PRODUCT_FULLFILIED,
                 data
             });
         } else {
@@ -98,6 +98,7 @@ export function* handle_delete_product(action) {
 export function* handle_update_product(action) {
     try {
         const res = yield call(update_product_data, action);
+
         const status = res.status;
         const data = res.data;
 

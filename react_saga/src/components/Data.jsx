@@ -25,7 +25,7 @@ const Data = () => {
 
   const handleDelete = async (val) => {
     dispatch({ type: DELETE_PRODUCT_PANDING, dataObject: val });
-    console.log(val);
+
   };
 
   const handalchange = (e) => {
