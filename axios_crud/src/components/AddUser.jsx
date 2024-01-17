@@ -45,6 +45,7 @@ const AddUser = () => {
   });
   const [update, setupdate] = useState("");
   const { state } = useLocation();
+
   const [selectedDate, setSelectedDate] = useState(null);
 
   const handleDateChange = (date) => {
@@ -62,7 +63,7 @@ const AddUser = () => {
 
     if (update) {
       /*checks if the key is already in the data array and 
-      returns true (Api is not called)if it exists otherwise returns false and 
+      returns true (Api is not called)if it exists otherwise returns false and
       returns false and returns(Api is called)*/
 
       const changesExist = Object.keys(data).some((key) => {
@@ -106,6 +107,7 @@ const AddUser = () => {
 
   useEffect(() => {
     if (state) {
+      console.log(state,"state")
       setSelectedDate(dayjs(state.userData.DateofBirth)); // date of birth set using dayjs format
       setupdate(state.userData.id); // state through find user id
       setdata({
@@ -251,6 +253,7 @@ const AddUser = () => {
         </Button>
         <Button variant="contained">Cancle</Button>
       </Box>
+    
     </Box>
   );
 };

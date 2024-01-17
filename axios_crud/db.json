@@ -1,7 +1,7 @@
 {
   "posts": [
     {
-      "fname": "Mia 123456",
+      "fname": "Mia",
       "lname": "Collins ",
       "cardNo": "1234565",
       "address": "In labore molestias ",
@@ -199,14 +199,35 @@
       "id": 30
     },
     {
-      "fname": "fname",
-      "lname": "",
-      "cardNo": "",
-      "address": "",
-      "assembly": "",
-      "part": "",
-      "DateofBirth": "",
-      "id": 31
+      "fname": "freni",
+      "lname": "patel",
+      "cardNo": "785496231",
+      "address": "suart",
+      "assembly": "patel nagar,opp bajagsdsa",
+      "part": "block 201",
+      "DateofBirth": "2004-09-03T18:30:00.000Z",
+      "id": 32
+    },
+    {
+      "fname": "Laurel",
+      "lname": "Lyons",
+      "cardNo": "Non qui eligendi eve",
+      "address": "Impedit odit pariat",
+      "assembly": "Zorita Cardenas",
+      "part": "Alexander Maldonado",
+      "DateofBirth": "2023-12-18T18:30:00.000Z",
+      "radiobuttons": "male",
+      "id": 33
+    },
+    {
+      "fname": "Freya",
+      "lname": "Bonner",
+      "cardNo": "Libero et velit ",
+      "address": "Eius ea aliquip cons",
+      "assembly": "Nelle Case",
+      "part": "Pascale Harrison",
+      "DateofBirth": "2023-12-01T18:30:00.000Z",
+      "id": 35
     }
   ],
   "comments": [
