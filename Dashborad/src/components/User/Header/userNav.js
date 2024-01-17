@@ -1,4 +1,4 @@
-export const userNav = [{
+ const userNav = [{
         name: "Home",
         path: "/",
     },
@@ -7,3 +7,4 @@ export const userNav = [{
         path: "/product",
     },
 ];
+export default userNav;

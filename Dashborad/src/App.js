@@ -10,9 +10,10 @@ import { useEffect, useState } from "react";
 import Product from "./components/User/Pages/Product";
 import Products from "./components/Admin/Pages/Products";
 import Sidebar from "./components/Admin/components/Sidebar";
+import userNav from "./components/User/Header/userNav";
 
 function App() {
-  const role = "admin";
+  const role = "user";
   const [data, setdata] = useState();
 
   const arr = localStorage.getItem("data")
@@ -28,33 +29,31 @@ function App() {
   if (role === "admin") {
     return (
       <>
-        {" "}
-        {/* <Navbar /> */} {/* data={adminNav} */}{" "}
+        
+        {/* <Navbar /> */} {/* data={adminNav} */}
         <Sidebar>
           <Routes>
-            {" "}
+            
             {/* <Route path="/" element={<Dashborad/>} />
-                                          <Route path="/list" element={<List/>} />
-                                          <Route path="*" element={<NotFoundPage/>} /> */}{" "}
-            {/* <Route path="/" element={<Dashboard />} /> */}{" "}
-            <Route path="/dashboard" element={<Dashboard />} />{" "}
-            <Route path="/about" element={<About />} />{" "}
-            <Route path="/product" element={<Products />} />{" "}
-          </Routes>{" "}
+                                                  <Route path="/list" element={<List/>} />
+                                                  <Route path="*" element={<NotFoundPage/>} /> */}
+            {/* <Route path="/" element={<Dashboard />} /> */}
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/product" element={<Products />} />
+          </Routes>
         </Sidebar>
       </>
     );
   } else if (role === "user") {
     return (
       <>
-        <Navbar
-        // data={userNav}
-        />
+        <Navbar data={userNav} />
         <Routes>
-          <Route path="/" element={<Home />} />{" "}
-          <Route path="/product" element={<Product />} />{" "}
-          <Route path="*" element={<NotFoundPage />} />{" "}
-        </Routes>{" "}
+          <Route path="/" element={<Home />} />
+          <Route path="/product" element={<Product />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
       </>
     );
   } else {
