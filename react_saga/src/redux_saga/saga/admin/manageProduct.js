@@ -78,7 +78,7 @@ export function* handle_delete_product(action) {
 
         if (status === 200 || status === 201) {
             yield put({
-               type: DELETE_PRODUCT_FULLFILIED,
+                type: DELETE_PRODUCT_FULLFILIED,
                 data
             });
         } else {
@@ -115,7 +115,8 @@ export function* handle_update_product(action) {
         }
     } catch (err) {
         yield put({
-            type: PUT_PRODUCT_REJECTED,err
+            type: PUT_PRODUCT_REJECTED,
+            err
         })
     }
 }

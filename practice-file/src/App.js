@@ -19,13 +19,13 @@ function App() {
         <Navbar />
         {/* SET ROUTES  */}
         <Routes>
-          <Route path="/" exact element={<Home />}></Route>{" "}
-          <Route path="/about" exact element={<About />}></Route>{" "}
-          <Route path="/contact" exact element={<Contact />}></Route>{" "}
-          <Route path="/:product" exact element={<View />}></Route>{" "}
-        </Routes>{" "}
-      </div>{" "}
-      <Counter /> {/* <Form1 /> */}{" "}
+          <Route path="/" exact element={<Home />}></Route>
+          <Route path="/about" exact element={<About />}></Route>
+          <Route path="/contact" exact element={<Contact />}></Route>
+          <Route path="/:product" exact element={<View />}></Route>
+        </Routes>
+      </div>
+      <Counter /> {/* <Form1 /> */}
     </div>
   );
 }

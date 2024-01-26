@@ -14,6 +14,7 @@ export async function get_product_data() {
     // }
     return axios.get(BASE_URL + GET_PRODUCT_API)
         .then((res) => {
+            console.log(res)
             const data = res.data
             const status = res.status
             return {

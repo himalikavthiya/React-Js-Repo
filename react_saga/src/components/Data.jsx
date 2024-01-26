@@ -10,15 +10,18 @@ import { useState } from "react";
 
 const Data = () => {
   const product = useSelector((state) => state.adminReducer);
-  const title = useRef();
-  const author = useRef();
+  const Product_name = useRef();
+  const price = useRef();
+  const quantity = useRef();
+
   const [view, setview] = useState({});
   const dispatch = useDispatch();
 
   const handlesubmit = async () => {
     const data = {
-      title: title.current.value,
-      author: author.current.value,
+      Product_name: Product_name.current.value,
+      price: price.current.value,
+      quantity: quantity.current.value,
     };
     dispatch({ type: POST_PRODUCT_PANDING, dataObject: data });
   };
@@ -39,12 +42,13 @@ const Data = () => {
     dispatch({ type: PUT_PRODUCT_PANDING, dataObject: view });
   };
 
-
+ const finalProduct = product.product.filter((v) => v.product_status === true)
   return (
-    <React.Fragment>
+    <>
       <div>
-        <input type="text" name="title" ref={title} />
-        <input type="text" name="author" ref={author} />
+        <input type="text" name="title" placeholder="product name"  ref={Product_name} />
+        <input type="text" name="author"   placeholder="price" ref={price} />
+        <input type="number" name="quantity"placeholder="quntity" ref={quantity} />
         <button type="submit" onClick={handlesubmit}>
           submit
         </button>
@@ -52,29 +56,48 @@ const Data = () => {
 
       <input
         type="text"
-        name="title"
-        value={view.title}
+        name="Product_name"
+        value={view.Product_name}
+        placeholder="product name"
         onChange={handalchange}
       ></input>
       <input
         type="text"
-        name="author"
-        value={view.author}
+        name="price"
+        value={view.price}
+        placeholder="price"
         onChange={handalchange}
       ></input>
+       <input
+        type="text"
+        name="quantity"
+        value={view.quantity}
+        placeholder="quntity"
+
+        onChange={handalchange}
+      ></input>
+
             <button onClick={handalUpdate}>Update</button>
 
-      {product.product?.map((val, ind) => {
+   <div class="row">
+      {finalProduct?.map((val, ind) => {
         return (
           <>
-            <p>{val?.title}</p>
-            <p>{val?.author}</p>
+           <div class="col-md-4">
+        <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Product_name:{val?.Product_name}</h5>
+        <p class="card-text">price:{val?.price}</p>
+        <p class="card-text">quantity:{val?.quantity}</p>
             <button onClick={() => handleDelete(val)}>Delete</button>
             <button onClick={() => setview(val)}>view</button>
+            </div>
+            </div></div>
           </>
         );
       })}
-    </React.Fragment>
+      </div>
+    </>
   );
 };
 
